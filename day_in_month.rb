@@ -13,8 +13,6 @@ day_in_month = {
   December: 31
 }
 
-day_in_month.each do |k,v|
-  if v == 30
-    puts k
-  end
+day_in_month.each do |month,day|
+  puts month if day == 30
 end

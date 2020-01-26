@@ -1,32 +1,4 @@
-day_of_month = [
-  ['January', 31],
-  ['February', 28],
-  ['March', 31],
-  ['April', 30],
-  ['May', 31],
-  ['June',30],
-  ['July', 31],
-  ['August', 31],
-  ['September', 30],
-  ['October', 31],
-  ['November', 30],
-  ['December', 31]
-]
-
-day_of_leap_month = [
-  ['January', 31],
-  ['February', 29],
-  ['March', 31],
-  ['April', 30],
-  ['May', 31],
-  ['June',30],
-  ['July', 31],
-  ['August', 31],
-  ['September', 30],
-  ['October', 31],
-  ['November', 30],
-  ['December', 31]
-]
+day_in_month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
 print 'Введите год: '
 year = gets.to_i
@@ -35,20 +7,9 @@ month = gets.to_i
 print 'введите число месяца: '
 date = gets.to_i
 
-if (year % 400 == 0) || ((year % 4 == 0) && (year % 100 != 0))
-  days = date
-  i_month = month -1
-  while i_month > 0
-    days +=  day_of_leap_month [i_month - 1][1]
-    i_month -=1
-  end
-  puts days
-else
-  days = date
-  i_month = month -1
-  while i_month > 0
-    days +=  day_of_month [i_month - 1][1]
-    i_month -=1
-  end
-  puts days
-end
+day_in_month[1] = 29 if (year % 400 == 0) || ((year % 4 == 0) && (year % 100 != 0))
+
+days = date
+days += day_in_month.take(month - 1).sum(0)
+
+puts days

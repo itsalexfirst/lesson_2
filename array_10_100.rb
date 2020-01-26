@@ -1,4 +1,4 @@
-ten_to_hundred = Array.new
+ten_to_hundred = []
 
 i = 10
 while i <= 100

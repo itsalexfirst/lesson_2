@@ -18,7 +18,6 @@ end
 if list_of_goods.empty?
   puts 'Товары не добавлены'
 else
-
   total_price = 0
 
   list_of_goods.each do |k, v|
