@@ -1,9 +1,8 @@
 vowel = ['A', 'E', 'I', 'O', 'U', 'Y']
 vowel_number = {}
-letter_index = 1
 
-('A'..'Z').each do |letter|
-  vowel_number[letter] = letter_index if vowel.include? letter
+('A'..'Z').each.with_index do |letter, letter_index|
+  vowel_number[letter] = letter_index + 1 if vowel.include? letter
   letter_index +=1
 end
 
